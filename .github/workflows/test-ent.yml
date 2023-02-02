@@ -17,6 +17,6 @@ jobs:
       name: Fetch repository
     
     - name: Build bundle
-      uses: entando/catalyst-infra-templates/custom-github-actions/ent@main
+      uses: entando/catalyst-infra-templates/custom-github-actions/ent@test-ent
       
     
