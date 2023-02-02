@@ -23,5 +23,5 @@ jobs:
         docker-org: 'entando'
         
     - name: Create manifests
-      run: ent bundle pack --org=${{ steps.ent.inputs.docker-org }} --stdout
+      run: ent bundle pack --org=entando --stdout
     
