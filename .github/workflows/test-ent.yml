@@ -17,6 +17,11 @@ jobs:
       name: Fetch repository
     
     - name: Build bundle
+      id: ent
       uses: entando/catalyst-infra-templates/custom-github-actions/ent@test-ent
-      
+      with:
+        docker-org: 'entando'
+        
+    - name: Create manifests
+      run: ent bundle pack --org=${{ steps.ent.inputs.docker-org }} --stdout
     
