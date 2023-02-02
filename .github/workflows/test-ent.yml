@@ -20,8 +20,6 @@ jobs:
       id: ent
       uses: entando/catalyst-infra-templates/custom-github-actions/ent@test-ent
       with:
-        docker-org: 'entando'
+        ent-command: 'ent bundle pack --org=entando --stdout'
         
-    - name: Create manifests
-      run: ent bundle pack --org=entando --stdout
     
