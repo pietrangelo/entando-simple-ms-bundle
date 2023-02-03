@@ -19,6 +19,3 @@ jobs:
     - name: Build bundle
       id: ent
       uses: pietrangelo-net/ent@main
-      
-    - run: echo "/ent/.entando/ent/v7.1.3/cli/v7.1.3/bin" >> $GITHUB_PATH
-
