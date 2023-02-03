@@ -19,5 +19,3 @@ jobs:
     - name: Build bundle
       id: ent
       uses: pietrangelo-net/ent@main
-        
-    
