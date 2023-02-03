@@ -18,6 +18,6 @@ jobs:
     
     - name: Build bundle
       id: ent
-      uses: entando/catalyst-infra-templates/custom-github-actions/ent@test-ent
+      uses: pietrangelo-net/ent@main
         
     
