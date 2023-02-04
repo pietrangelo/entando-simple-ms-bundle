@@ -17,5 +17,7 @@ jobs:
       name: Fetch repository
       
     - name: Build bundle
-      id: ent
+      id: ent-command
       uses: pietrangelo-net/ent@main
+      with:
+        ent-command: 'ent bundle pack --org=entando --stdout'
