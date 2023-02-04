@@ -20,4 +20,4 @@ jobs:
       id: ent-command
       uses: pietrangelo-net/ent@main
       with:
-        ent-command: ''
+        ent-command: ls -la
