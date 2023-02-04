@@ -20,4 +20,4 @@ jobs:
       id: ent-command
       uses: pietrangelo-net/ent@main
       with:
-        ent-command: 'ent bundle pack --org=entando --stdout'
+        ent-command: ''
