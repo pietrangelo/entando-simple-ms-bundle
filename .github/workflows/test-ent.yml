@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build-and-generate-manifests:
+  build-generate-manifests-and-docker-images:
 
     runs-on: ubuntu-latest
 
@@ -34,7 +34,7 @@ jobs:
     - name: Number of Microservices
       run: echo "Number of Microservices-> ${{ steps.ent.outputs.microservices-number }}"
       
-    - name: Test call docker directly
-      run: docker version
+    - name: Build docker bundle image
+      run: docker build -t registry.hub.docker.com/entando/${{ steps.ent.outputs.bundle-name }}:${{ steps.ent.outputs.bundle-version }} --file ./.entando/output/Dockerfile .
       
       
