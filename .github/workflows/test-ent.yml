@@ -17,11 +17,12 @@ jobs:
       name: Fetch repository
       
     - name: Build bundle
-      id: ent-command
+      id: ent
       uses: pietrangelo-net/ent@main
       with:
         ent-command: ent bundle pack --org=entando --stdout
+        
     - name: Bundle name
-      run: echo "Bundle Name: ${{ steps.ent-command.outputs.bundle-name }}" 
+      run: echo "Bundle Name-> ${{ steps.ent.outputs.bundle-name }}"
       
       
