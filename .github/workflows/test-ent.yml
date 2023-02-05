@@ -35,7 +35,7 @@ jobs:
       run: echo "Number of Microservices-> ${{ steps.ent.outputs.microservices-number }}"
       
     - name: Docker login
-      run: echo "$DOCKER_SA_TOKEN" | docker login --username "$DOCKER_SA_LOGIN" --password-stdin https://registry-1.docker.io/v2/
+      run: echo ${{ secrets.DOCKER_SA_TOKEN }} | docker login --username ${{ secrets.DOCKER_SA_LOGIN }} --password-stdin https://registry-1.docker.io/v2/
       
     - name: Build docker bundle image
       run: docker build -t registry.hub.docker.com/entando/${{ steps.ent.outputs.bundle-name }}:${{ steps.ent.outputs.bundle-version }} --file ./.entando/output/Dockerfile .
