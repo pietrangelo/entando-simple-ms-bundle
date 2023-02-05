@@ -25,4 +25,10 @@ jobs:
     - name: Bundle name
       run: echo "Bundle Name-> ${{ steps.ent.outputs.bundle-name }}"
       
+    - name: Bundle version
+      run: echo "Bundle Version-> ${{ steps.ent.outputs.bundle-version }}"
+      
+    - name: List of Microservices
+      run: echo "Microservices's list-> ${{ steps.ent.outputs.microservices-list }}"
+      
       
