@@ -34,4 +34,7 @@ jobs:
     - name: Number of Microservices
       run: echo "Number of Microservices-> ${{ steps.ent.outputs.microservices-number }}"
       
+    - name: Test call docker directly
+      run: docker version
+      
       
