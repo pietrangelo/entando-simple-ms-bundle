@@ -47,11 +47,11 @@ jobs:
       run: |
         if [ ${{ steps.ent.outputs.microservices-number }} -gt 1 ]; then
           for ms in ${{ steps.ent.outputs.microservices-list }} ; do
-            docker build -t registry.hub.docker.com/pmasala/$ms:`cat ms-"$ms"-version` --file ./microservices/"$ms"/Dockerfile . 
+            docker build -t registry.hub.docker.com/pmasala/$ms:`cat ms-"$ms"-version` --file ./microservices/"$ms"/Dockerfile ./microservices/"$ms"/ 
             docker push registry.hub.docker.com/pmasala/$ms:`cat ms-"$ms"-version` ;
             done
         else
-          docker build -t registry.hub.docker.com/pmasala/${{ steps.ent.outputs.microservices-list }}:`cat microserviceVersion` --file ./microservices/${{ steps.ent.outputs.microservices-list }}/Dockerfile .
+          docker build -t registry.hub.docker.com/pmasala/${{ steps.ent.outputs.microservices-list }}:`cat microserviceVersion` --file ./microservices/${{ steps.ent.outputs.microservices-list }}/Dockerfile ./microservices/${{ steps.ent.outputs.microservices-list }}/
           docker push registry.hub.docker.com/pmasala/${{ steps.ent.outputs.microservices-list }}:`cat microserviceVersion`
         fi
             
