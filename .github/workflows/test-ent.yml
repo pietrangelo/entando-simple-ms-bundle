@@ -43,7 +43,22 @@ jobs:
     - name: Push bundle image
       run: docker push registry.hub.docker.com/pmasala/${{ steps.ent.outputs.bundle-name }}:${{ steps.ent.outputs.bundle-version }}
       
+    - name: Build and push ms docker image(s)
+      run: |
+        if [ ${{ steps.ent.outputs.microservices-number }} -gt 1]; then
+          for ms in ${{ steps.ent.outputs.microservices-list }} ; do
+            docker build -t registry.hub.docker.com/pmasala/$ms:`cat ms-"$ms"-version` --file ./microservices/"$ms"/Dockerfile . 
+            docker push registry.hub.docker.com/pmasala/$ms:`cat ms-"$ms"-version` ;
+            done
+        else
+          docker build -t registry.hub.docker.com/pmasala/${{ steps.ent.outputs.microservices-list }}:`cat microserviceVersion` --file ./microservices/${{ steps.ent.outputs.microservices-list }}/Dockerfile .
+          docker push registry.hub.docker.com/pmasala/${{ steps.ent.outputs.microservices-list }}:`cat microserviceVersion`
+        fi
+            
     - name: Docker logout
       run: docker logout
+    
+    - name: Remove docker config.json file
+      run: rm -f /home/runner/.docker/config.json
       
       
