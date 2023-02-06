@@ -18,7 +18,7 @@ jobs:
       
     - name: Build bundle
       id: ent
-      uses: pietrangelo-net/ent@main
+      uses: entando/catalyst-infra-templates/custom-githun-actions/ent@test-ent
       with:
         ent-command: ent bundle pack --org=entando --stdout
         
