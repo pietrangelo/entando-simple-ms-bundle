@@ -45,7 +45,7 @@ jobs:
       
     - name: Build and push ms docker image(s)
       run: |
-        if [ ${{ steps.ent.outputs.microservices-number }} -gt 1]; then
+        if [ ${{ steps.ent.outputs.microservices-number }} -gt 1 ]; then
           for ms in ${{ steps.ent.outputs.microservices-list }} ; do
             docker build -t registry.hub.docker.com/pmasala/$ms:`cat ms-"$ms"-version` --file ./microservices/"$ms"/Dockerfile . 
             docker push registry.hub.docker.com/pmasala/$ms:`cat ms-"$ms"-version` ;
